@@ -67,7 +67,6 @@ const images = [
   const galleryList = document.querySelector(".gallery");
 
   galleryList.insertAdjacentHTML("beforeend", createMarkup(images));
-  galleryList.addEventListener("click", galleryClick);
 
   function createMarkup(arrGallery) {
     return arrGallery.map(({ preview, original, description }) => `
@@ -84,11 +83,11 @@ const images = [
       `).join("");      
   }
 
-  function galleryClick(event) {
-    if(event.target === event.currentTarget) {
-     return;
+  document.querySelector('ul').addEventListener('click', function(event) {
+      if (event.target.nodeName === 'LI') {
+      console.log('Натиснуто на елемент списку:', event.target.textContent);
     }
-  }
+  });
 
    const galleryLink = document.querySelectorAll(".gallery-link");
    galleryLink.forEach(link => { 
@@ -98,20 +97,7 @@ const images = [
   });
   
 
-  galleryList.style.display = "flex";
-  galleryList.style.flexWrap = "wrap";
-  galleryList.style.width = "1128px";
-  galleryList.style.marginLeft = "156px";
-  galleryList.style.paddingInlineStart = "0";
-  galleryList.style.gap = "24px";
-  galleryList.style.listStyleType = `none`;
-
-  const galleryImage = document.querySelectorAll(".gallery-image");
-  galleryImage.forEach(item => item.setAttribute("width", "360px"));
-
-  galleryList.addEventListener("click", showLagerImage);
-    
-    function showLagerImage(event) {
+  galleryList.addEventListener("click", function(event) {
     if (event.target.classList.contains("gallery-image")) {
       const largeImage = event.target.dataset.source;
       const modul = basicLightbox.create(`
@@ -119,4 +105,4 @@ const images = [
       `);
       modul.show();
     }
-    };
+    });
