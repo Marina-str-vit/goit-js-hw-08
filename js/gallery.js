@@ -109,7 +109,7 @@ const images = [
   const galleryImage = document.querySelectorAll(".gallery-image");
   galleryImage.forEach(item => item.setAttribute("width", "360px"));
 
-  galleryList.addEventListener('click',
+  galleryList.addEventListener('click', showLagerImage);
     
     function showLagerImage (event) {
     if (event.target.classList.contains("gallery-image")) {
@@ -119,4 +119,4 @@ const images = [
       `);
       instance.show();
     }
-  });
+    };
