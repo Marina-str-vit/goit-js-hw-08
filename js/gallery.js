@@ -109,14 +109,14 @@ const images = [
   const galleryImage = document.querySelectorAll(".gallery-image");
   galleryImage.forEach(item => item.setAttribute("width", "360px"));
 
-  galleryList.addEventListener('click', showLagerImage);
+  galleryList.addEventListener("click", showLagerImage);
     
-    function showLagerImage (event) {
+    function showLagerImage(event) {
     if (event.target.classList.contains("gallery-image")) {
       const largeImage = event.target.dataset.source;
-      const instance = basicLightbox.create(`
+      const modul = basicLightbox.create(`
         <img src="${largeImage}" alt="Large image">
       `);
-      instance.show();
+      modul.show();
     }
     };
