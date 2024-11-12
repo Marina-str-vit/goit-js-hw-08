@@ -89,15 +89,10 @@ const images = [
     }
   });
 
-   const galleryLink = document.querySelectorAll(".gallery-link");
-   galleryLink.forEach(link => { 
-      link.addEventListener('click', event => {
-      event.preventDefault();
-    });
-  });
-  
+   
 
   galleryList.addEventListener("click", function(event) {
+    event.preventDefault();
     if (event.target.classList.contains("gallery-image")) {
       const largeImage = event.target.dataset.source;
       const modul = basicLightbox.create(`
