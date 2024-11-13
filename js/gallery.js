@@ -83,21 +83,13 @@ const images = [
       `).join("");      
   }
 
-  document.querySelector('ul').addEventListener('click', function(event) {
-      if (event.target.nodeName === 'LI') {
-      console.log('Натиснуто на елемент списку:', event.target.textContent);
-    }
-  });
-
-   
-
   galleryList.addEventListener("click", function(event) {
     event.preventDefault();
     if (event.target.classList.contains("gallery-image")) {
       const largeImage = event.target.dataset.source;
       const modul = basicLightbox.create(`
-        <img src="${largeImage}" alt="Large image">
+        <img src="${largeImage}" alt="${event.target.alt}">
       `);
       modul.show();
     }
-    });
+  });
